@@ -1,11 +1,17 @@
 # Magisk Module: Latest Color Emoji
 Ensure modern emoji display on outdated Android firmware! This Magisk module automatically updates your system's emoji font to the latest **Noto Color Emoji** (Google’s open-source emoji set). Compatible with most devices running Magisk.
 
-# Requirements:
+# Requirements
 
 * Android
 * Rooted device with Magisk 20.4+ installed
 * ROM supporting color emoji
+
+# Build
+
+Required `wget`, `zip`.
+
+Run `build.sh` with the version code as an optional argument.
 
 # License
 Emoji fonts are under the SIL Open Font License, version 1.1.
