@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Custom version code
+
+if [ $# -ge 1 ]; then
+    if [[ $1 =~ ^[0-9]+$ ]]; then
+        CUSTOM_VERSION_CODE=$1
+    else
+        echo "Error: versionCode must be a positive integer"
+        exit 1
+    fi
+fi
+
 # Clean previous build
 rm -rf build 2>/dev/null
 mkdir -p build/{system/fonts,META-INF/com/google/android}
@@ -18,7 +29,13 @@ wget -O build/system/fonts/NotoColorEmojiFlags.ttf \
 wget -q -O version.xml \
   "https://github.com/googlefonts/noto-emoji/raw/main/NotoColorEmoji.tmpl.ttx.tmpl"
 VERSION=$(grep -oP '<fontRevision value="\K[^"]+' version.xml)
-VERSION_CODE=$(echo $VERSION | tr -d '.' | cut -c1-4)
+
+# Calculate versionCode
+if [ -n "$CUSTOM_VERSION_CODE" ]; then
+    VERSION_CODE=$CUSTOM_VERSION_CODE
+else
+    VERSION_CODE=$(echo $VERSION | tr -d '.' | cut -c1-4)
+fi
 
 # Create module.prop
 cat > build/module.prop << EOF
