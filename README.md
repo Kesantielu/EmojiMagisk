@@ -9,9 +9,9 @@ Ensure modern emoji display on outdated Android firmware! This Magisk module aut
 
 # Build
 
-Required `wget`, `zip`.
+Required `wget`, `zip`, `grep`.
 
-Run `build.sh` with the version code as an optional argument.
+Run `build.sh` with the integer version code as an optional argument.
 
 # License
 Emoji fonts are under the SIL Open Font License, version 1.1.
