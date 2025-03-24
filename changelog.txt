@@ -1,0 +1,2 @@
+v2.047
+Unicode 16.0 emoji
