@@ -46,13 +46,12 @@ download_with_check() {
 }
 
 # Check Magisk scripts
-if [ ! -f "META-INF/com/google/android/update-binary" ] || \
-    [ ! -f "META-INF/com/google/android/updater-script" ]; then
+if [ ! -f "update-binary" ] || [ ! -f "updater-script" ]; then
     echo "Error: Magisk script files missing"
     exit 1
 fi
 
-cp META-INF/com/google/android/{update-binary,updater-script} build/META-INF/com/google/android/
+cp {update-binary,updater-script} build/META-INF/com/google/android/
 
 # Copy license
 cp {LICENSE,LICENSE.font} build/
